@@ -1,8 +1,8 @@
 ---
-layout: post
 title:  "让Tornado框架解析json形式的HTTTP请求"
 date:   2019-04-05 21:43:43 +0800
-categories: Tornado
+categories: Tornado 框架
+tags: python framework tornado http body parse
 ---
 ### 背景：
 
