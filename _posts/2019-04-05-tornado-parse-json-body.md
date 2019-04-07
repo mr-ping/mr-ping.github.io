@@ -62,7 +62,6 @@ def prepare(self):
 ```
 
 再进一步。如果嫌每个Handler都写prepare方法麻烦，那么就继承个子类出来，在项目中使用。  
-并且，我们还可以复写`RequestHandler.get_argument`等方法，做到让自己或队友无感使用，不需要刻意从`RequestHandler().args`中取值。
 
 ```python
 class MyRequestHandler(RequestHandler):
