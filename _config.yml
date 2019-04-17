@@ -79,7 +79,7 @@ plugins:
 favicon: /assets/favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Jekyll, NexT"
+keywords: "Jekyll, NexT, Programming"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -331,9 +331,9 @@ post_wordcount:
 
 # Declare license on posts
 post_copyright:
-  enable: false
-  license: CC BY-NC-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
+  enable: True
+  license: CC BY-ND 4.0
+  license_url: https://creativecommons.org/licenses/by-nd/4.0/
 
 
 
