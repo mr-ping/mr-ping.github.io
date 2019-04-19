@@ -1,8 +1,8 @@
 ---
-title:  "Python中字典的高级应用"
-date:   2019-04-15 10:43:43 +0800
+title:  "Python字典的高级应用 - defaultdict"
+date:   2019-04-19 10:43:43 +0800
 categories: Python
-tags: Python 字典
+tags: Python 字典	
 ---
 怎样使用Python字典这种数据类型呢？  
 Well, 知道创建字典、给元素赋值、对元素取值、删除元素、遍历元素，就OK啦！能走遍天下了！那了解什么高级特性干嘛？  
@@ -95,3 +95,60 @@ defaultdict(<function my_pi at 0x7f2e90029f28>, {'a': 1, 'b': 2})
 ```
 
 ### 应用场景
+
+听起来很美好，但什么情况下会用到呢？
+
+#### 举个例子-博客计数器：
+
+如果你的博客页面上有个计数器，他记录每个IP地址的访问次数。  
+那么一种记录的数据结构就类似于：  
+```python
+>>> counter = {'IP_1': 5, 'IP_8': 2344, ...}
+```
+我们没有办法预估有那些IP地址会访问我们的博客，从而事先创建好IP齐全的`counter`  
+##### 先看看传统方式如何解决
+```python
+>>> counter = {}
+
+>>> def count(ip):
+>>>     if ip in counter.keys():
+>>>         counter[ip] += 1
+>>>     else:
+>>>         counter[ip] = 1
+
+>>> count('ip_1')
+
+>>> print (counter)
+{'ip_1': 1}
+```
+很麻烦，而且每次都要遍历，性能也足够低下。
+
+##### 使用`dict.setdefault`
+
+除了`defaultdict`，还可以使用`dict.setdefault`来达到相同的目的。
+
+```python
+>>> counter = {'ip2': 2}
+
+>>> def count(ip):
+>>>     counter.setdefault(ip, 0)  # 若元素不存在，创建、赋默认值；存在就忽略掉
+>>>     counter[ip] += 1
+>>> count('ip2')
+
+>>> counter
+{'ip2': 3}
+```
+简化了许多，可还是不够优雅。
+
+##### 使用`defaultdict`
+
+```python
+from collections import defaultdict
+
+>>> counter = defaultdict(int)
+>>> counter['ip_1'] += 1
+
+>>> print(counter)
+defaultdict(<class 'int'>, {'ip_1': 1})
+```
+你看，高下立判。
