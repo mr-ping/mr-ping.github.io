@@ -143,6 +143,14 @@ Counter({'IP7': 1, 'IP8': 0, 'IP9': 0, 'IP1': 3, 'IP2': 1})
 ```
 `subtract`方法从总访问计数中依次将page2对象中每个IP计数的值从总计数值中减去。
 
+当然也可以直接用*运算符*来达到目的：
+```python
+>>> cnt_pages = Counter({'IP7': 6, 'IP8': 3, 'IP9': 1, 'IP1': 3, 'IP2': 1})
+>>> cnt_pages = cnt_pages - cnt_page2
+>>> print(cnt_pages)
+Counter({'IP7': 1, 'IP1': 3, 'IP2': 1})
+```
+
 ### `Counter.elements`方法
 
 这个方法在我们的例子中貌似没有什么用处，但因为它是`Counter`不同于`dict`的一个特殊方法，还是介绍下：
